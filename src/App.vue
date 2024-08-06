@@ -1,9 +1,16 @@
-<template lang="">
-  <h1 class="text-lg">Job list</h1>
-</template>
-<script setup>
 
+<script setup>
+  import Navbar from '@/components/Navbar.vue'
+  import Hero from '@/components/Hero.vue';
+  import HomeCards from '@/components/HomeCards.vue';
 </script>
+
+<template>
+  <Navbar />
+  <Hero title="Test Title" subtitle="Test" />
+  <HomeCards />
+</template>
+
 <style lang="">
   
 </style>

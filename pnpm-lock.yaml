@@ -13,10 +13,12 @@ specifiers:
   postcss: ^8.4.41
   tailwindcss: ^3.4.7
   vue: ^3.2.13
+  vue-router: ^4.4.2
 
 dependencies:
   core-js: 3.38.0
   vue: 3.4.35
+  vue-router: 4.4.2_vue@3.4.35
 
 devDependencies:
   '@babel/core': 7.25.2
@@ -2238,6 +2240,10 @@ packages:
       - walrus
       - whiskers
     dev: true
+
+  /@vue/devtools-api/6.6.3:
+    resolution: {integrity: sha512-0MiMsFma/HqA6g3KLKn+AGpL1kgKhFWszC9U29NfpWK5LE7bjeXxySWJrOJ77hBz+TBrBQ7o4QJqbPbqbs8rJw==}
+    dev: false
 
   /@vue/reactivity/3.4.35:
     resolution: {integrity: sha512-Ggtz7ZZHakriKioveJtPlStYardwQH6VCs9V13/4qjHSQb/teE30LVJNrbBVs4+aoYGtTQKJbTe4CWGxVZrvEw==}
@@ -7101,6 +7107,15 @@ packages:
       watchpack: 2.4.1
       webpack: 5.93.0
     dev: true
+
+  /vue-router/4.4.2_vue@3.4.35:
+    resolution: {integrity: sha512-1qNybkn2L7QsLzaXs8nvlQmRKp8XF8DCxZys/Jr1JpQcHsKUxTKzTxCVA1G7NfBfwRIBgCJPoujOG5lHCCNUxw==}
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      '@vue/devtools-api': 6.6.3
+      vue: 3.4.35
+    dev: false
 
   /vue-style-loader/4.1.3:
     resolution: {integrity: sha512-sFuh0xfbtpRlKfm39ss/ikqs9AbKCoXZBpHeVZ8Tx650o0k0q/YCM7FRvigtxpACezfq6af+a7JeqVTWvncqDg==}
