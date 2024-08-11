@@ -83,6 +83,20 @@
         "contactEmail": "contact@ipsumlorem.com",
         "contactPhone": "555-555-5555"
       }
+    },
+    {
+      "id": "f363",
+      "type": "Part-Time",
+      "title": "dsasasa",
+      "description": "sasasas",
+      "location": "sasasa",
+      "salary": "$90K - $100K",
+      "company": {
+        "name": "sasa",
+        "description": "sasa",
+        "contactEmail": "dsds12@gmail.com",
+        "contactPhone": "12121"
+      }
     }
   ]
 }
