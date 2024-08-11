@@ -1,7 +1,8 @@
 <script setup>
 import { reactive, onMounted } from "vue";
 import { useRoute } from "vue-router";
-import axios from 'axios'
+import axios from "axios";
+import router from "@/router";
 const route = useRoute();
 const jobId = route.params.id;
 const state = reactive({
@@ -12,13 +13,21 @@ onMounted(async () => {
   try {
     const res = await axios.get(`http://localhost:5000/jobs/${jobId}`);
     state.job = res.data;
-    console.log(res.data)
+    console.log(res.data);
   } catch (err) {
     console.log(err);
   } finally {
     state.isLoading = false;
   }
 });
+const deleteJob = async () => {
+  try {
+    await axios.delete(`http://localhost:5000/jobs/${jobId}`);
+    router.push("/jobs");
+  } catch (err) {
+    console.error(err);
+  }
+};
 </script>
 
 <template>
@@ -33,9 +42,7 @@ onMounted(async () => {
       </a>
     </div>
   </section>
-  <div v-else>
-    Loading...
-  </div>
+  <div v-else>Loading...</div>
   <section class="bg-green-50">
     <div class="container m-auto py-10 px-6">
       <div class="grid grid-cols-1 md:grid-cols-70/30 w-full gap-6">
@@ -79,7 +86,7 @@ onMounted(async () => {
           <div class="bg-white p-6 rounded-lg shadow-md">
             <h3 class="text-xl font-bold mb-6">Company Info</h3>
 
-            <h2 class="text-2xl">{{ state.job?.company?.name  }}</h2>
+            <h2 class="text-2xl">{{ state.job?.company?.name }}</h2>
 
             <p class="my-2">
               {{ state.job?.company?.description }}
@@ -95,7 +102,9 @@ onMounted(async () => {
 
             <h3 class="text-xl">Contact Phone:</h3>
 
-            <p class="my-2 bg-green-100 p-2 font-bold">{{ state.job?.company?.contactPhone }}</p>
+            <p class="my-2 bg-green-100 p-2 font-bold">
+              {{ state.job?.company?.contactPhone }}
+            </p>
           </div>
 
           <!-- Manage -->
@@ -107,6 +116,7 @@ onMounted(async () => {
               >Edit Job</a
             >
             <button
+              @click="deleteJob"
               class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
             >
               Delete Job
@@ -116,5 +126,4 @@ onMounted(async () => {
       </div>
     </div>
   </section>
-
 </template>
